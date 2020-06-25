@@ -25,6 +25,8 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'warn',
     'react/jsx-filename-extension': ['error', { extensions: ['.tsx'] }],
     'react/jsx-one-expression-per-line': 'off',
+    'react/jsx-props-no-spreading': 'off',
+    'react/prop-types': 'off',
     'import/prefer-default-export': 'off',
     'import/extensions': [
       'error',
