@@ -5,7 +5,8 @@ import { Form } from '@unform/web';
 
 import * as Yup from 'yup';
 
-import { useAuth } from '../../context/AuthContext';
+import { useAuth } from '../../context/auth';
+import { useToast } from '../../context/toast';
 
 import Button from '../../components/Button';
 import Input from '../../components/Input';
@@ -23,6 +24,7 @@ const SignIn: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
 
   const { signIn } = useAuth();
+  const { addToast } = useToast();
 
   const handleSubmit = useCallback(
     async (formData: SignInFormData) => {
@@ -39,17 +41,20 @@ const SignIn: React.FC = () => {
         await schema.validate(formData, {
           abortEarly: false,
         });
-        signIn({
+
+        await signIn({
           email: formData.email,
           password: formData.password,
         });
       } catch (err) {
         const errors = getValidationErrors(err);
 
+        addToast();
+
         formRef.current?.setErrors(errors);
       }
     },
-    [signIn]
+    [signIn, addToast]
   );
 
   return (
