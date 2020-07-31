@@ -4,5 +4,7 @@ module.exports = {
     'stylelint-config-recommended',
     'stylelint-config-styled-components',
   ],
-  rules: {},
+  rules: {
+    'no-descending-specificity': null,
+  },
 };
