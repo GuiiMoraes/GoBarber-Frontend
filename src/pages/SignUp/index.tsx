@@ -1,4 +1,5 @@
 import React, { useCallback, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { FiArrowLeft, FiMail, FiUser, FiLock } from 'react-icons/fi';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
@@ -9,7 +10,7 @@ import Button from '../../components/Button';
 import Input from '../../components/Input';
 
 import logo from '../../assets/logo.svg';
-import { Container, Content, Background } from './styles';
+import { Container, Content, AnimationContainer, Background } from './styles';
 
 interface FormData {
   name: string;
@@ -25,11 +26,13 @@ const SignUp: React.FC = () => {
       formRef.current?.setErrors({});
 
       const schema = Yup.object().shape({
-        name: Yup.string().required('O nome é obrigatório'),
+        name: Yup.string().required('Name is required'),
         email: Yup.string()
-          .email('Digite um e-mail válido')
-          .required('O e-mail é obrigatório'),
-        password: Yup.string().min(6, 'No mínimo 6 dígitos'),
+          .email('Please enter a valid email')
+          .required('E-mail is required'),
+        password: Yup.string()
+          .min(6, 'Minimum 6-digit length')
+          .required('Password is required'),
       });
 
       await schema.validate(formData, {
@@ -46,24 +49,31 @@ const SignUp: React.FC = () => {
     <Container>
       <Background />
       <Content>
-        <img src={logo} alt="Logo GoBarber" />
-        <Form ref={formRef} onSubmit={handleSubmit}>
-          <h1>Faça seu cadastro</h1>
+        <AnimationContainer>
+          <img src={logo} alt="Logo GoBarber" />
+          <Form ref={formRef} onSubmit={handleSubmit}>
+            <h1>Sign up</h1>
 
-          <Input name="name" icon={FiUser} type="text" placeholder="Nome" />
-          <Input name="email" icon={FiMail} type="email" placeholder="E-mail" />
-          <Input
-            name="password"
-            icon={FiLock}
-            type="password"
-            placeholder="Senha"
-          />
+            <Input name="name" icon={FiUser} type="text" placeholder="Name" />
+            <Input
+              name="email"
+              icon={FiMail}
+              type="email"
+              placeholder="E-mail"
+            />
+            <Input
+              name="password"
+              icon={FiLock}
+              type="password"
+              placeholder="Password"
+            />
 
-          <Button type="submit">Cadastrar</Button>
-        </Form>
-        <a href="to-do">
-          <FiArrowLeft /> Voltar para login
-        </a>
+            <Button type="submit">Register</Button>
+          </Form>
+          <Link to="/">
+            <FiArrowLeft /> Back to sign in
+          </Link>
+        </AnimationContainer>
       </Content>
     </Container>
   );
