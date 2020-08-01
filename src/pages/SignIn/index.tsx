@@ -67,7 +67,7 @@ const SignIn: React.FC = () => {
       <Content>
         <img src={logo} alt="Logo GoBarber" />
         <Form ref={formRef} onSubmit={handleSubmit}>
-          <h1>Faça seu login</h1>
+          <h1>Sign in</h1>
 
           <Input
             name="email"
@@ -79,18 +79,18 @@ const SignIn: React.FC = () => {
             name="password"
             icon={FiLock}
             type="password"
-            placeholder="Senha"
+            placeholder="Password"
             data-cy="password-input"
           />
 
           <Button type="submit" data-cy="form-submit">
-            Entrar
+            Enter
           </Button>
 
-          <a href="to-do">Esqueci minha senha</a>
+          <a href="to-do">Forgot password</a>
         </Form>
         <a href="to-do">
-          <FiLogIn /> Criar conta
+          <FiLogIn /> Sign Up
         </a>
       </Content>
       <Background />
