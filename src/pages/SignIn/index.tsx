@@ -91,7 +91,7 @@ const SignIn: React.FC = () => {
 
             <a href="to-do">Forgot password</a>
           </Form>
-          <Link to="sign-up">
+          <Link to="signup">
             <FiLogIn /> Sign Up
           </Link>
         </AnimationContainer>
