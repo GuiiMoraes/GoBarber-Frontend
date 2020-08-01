@@ -5,9 +5,12 @@ interface Errors {
 }
 
 export default function (err: ValidationError): Errors {
-  const validationErrors: Errors = {};
+  const validationErrors: Errors = {
+    status: 'error',
+    message: 'Unexpected error occurred',
+  };
 
-  err.inner.forEach(error => {
+  err?.inner?.forEach(error => {
     validationErrors[error.path] = error.message;
   });
 
