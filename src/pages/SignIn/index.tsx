@@ -1,5 +1,5 @@
 import React, { useRef, useCallback } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { FiLogIn, FiMail, FiLock } from 'react-icons/fi';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
@@ -23,6 +23,7 @@ interface SignInFormData {
 
 const SignIn: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
+  const history = useHistory();
 
   const { signIn } = useAuth();
   const { addToast } = useToast();
@@ -47,6 +48,8 @@ const SignIn: React.FC = () => {
           email: formData.email,
           password: formData.password,
         });
+
+        history.push('/dashboard');
       } catch (err) {
         const errors = getValidationErrors(err);
 
@@ -60,7 +63,7 @@ const SignIn: React.FC = () => {
         formRef.current?.setErrors(errors);
       }
     },
-    [signIn, addToast]
+    [signIn, history, addToast]
   );
 
   return (
