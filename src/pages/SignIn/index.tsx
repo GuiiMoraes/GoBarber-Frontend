@@ -11,6 +11,7 @@ import { useToast } from '../../context/toast';
 
 import Button from '../../components/Button';
 import Input from '../../components/Input';
+import GoogleSignInButton from '../../components/GoogleSignIn';
 
 import logo from '../../assets/logo.svg';
 import { Container, Content, AnimationContainer, Background } from './styles';
@@ -94,6 +95,7 @@ const SignIn: React.FC = () => {
 
             <a href="to-do">Forgot password</a>
           </Form>
+          <GoogleSignInButton />
           <Link to="signup">
             <FiLogIn /> Sign Up
           </Link>
