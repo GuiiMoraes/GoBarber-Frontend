@@ -29,6 +29,7 @@ module.exports = {
     'react/prop-types': 'off',
     'no-unused-expressions': 'off',
     'import/prefer-default-export': 'off',
+    '@typescript-eslint/triple-slash-reference': 'off',
     'import/extensions': [
       'error',
       'ignorePackages',
