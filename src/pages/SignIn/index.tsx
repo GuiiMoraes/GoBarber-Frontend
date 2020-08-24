@@ -79,17 +79,17 @@ const SignIn: React.FC = () => {
               name="email"
               icon={FiMail}
               placeholder="E-mail"
-              data-cy="email-input"
+              data-cy="sign-in-email-input"
             />
             <Input
               name="password"
               icon={FiLock}
               type="password"
               placeholder="Password"
-              data-cy="password-input"
+              data-cy="sign-in-password-input"
             />
 
-            <Button type="submit" data-cy="form-submit">
+            <Button type="submit" data-cy="sign-in-form-submit">
               Enter
             </Button>
 

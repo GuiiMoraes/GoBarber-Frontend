@@ -80,21 +80,31 @@ const SignUp: React.FC = () => {
           <Form ref={formRef} onSubmit={handleSubmit}>
             <h1>Sign up</h1>
 
-            <Input name="name" icon={FiUser} type="text" placeholder="Name" />
+            <Input
+              name="name"
+              icon={FiUser}
+              type="text"
+              placeholder="Name"
+              data-cy="sign-up-name-input"
+            />
             <Input
               name="email"
               icon={FiMail}
               type="email"
               placeholder="E-mail"
+              data-cy="sign-up-email-input"
             />
             <Input
               name="password"
               icon={FiLock}
               type="password"
               placeholder="Password"
+              data-cy="sign-up-password-input"
             />
 
-            <Button type="submit">Register</Button>
+            <Button type="submit" data-cy="sign-up-form-submit">
+              Register
+            </Button>
           </Form>
           <Link to="/">
             <FiArrowLeft /> Back to sign in
